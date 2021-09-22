@@ -3,7 +3,6 @@ import { PageLoading } from '@ant-design/pro-layout'
 import type { RunTimeLayoutConfig } from 'umi'
 import { history, Link } from 'umi'
 import RightContent from '@/components/RightContent'
-import Footer from '@/components/Footer'
 import { currentUser as queryCurrentUser } from './api/user'
 import { BookOutlined } from '@ant-design/icons'
 import initAxios from './services/initAxios'
@@ -58,7 +57,6 @@ export const layout: RunTimeLayoutConfig = ({ initialState }) => {
 		waterMarkProps: {
 			content: initialState?.currentUser?.name,
 		},
-		footerRender: () => <Footer />,
 		onPageChange: () => {
 			const { location } = history
 			// 如果没有登录，重定向到 login
