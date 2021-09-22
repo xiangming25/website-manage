@@ -8,4 +8,4 @@ enum errorCode {
   HOST_NOT_AVAILABLE = 6001, // 非法主机
 }
 
-export default errorCode;
+export default errorCode
