@@ -17,6 +17,7 @@
     "allowJs": true,
     "skipLibCheck": true,
     "experimentalDecorators": true,
+    "useUnknownInCatchVariables": false,
     "strict": true,
     "paths": {
       "@/*": ["./src/*"],

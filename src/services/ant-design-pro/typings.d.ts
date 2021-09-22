@@ -2,31 +2,22 @@
 /* eslint-disable */
 
 declare namespace API {
+  type Response<T> = {
+    code: number;
+    data: T,
+    message?: string;
+    success: boolean;
+  }
   type CurrentUser = {
     name?: string;
     avatar?: string;
-    userid?: string;
-    email?: string;
-    signature?: string;
-    title?: string;
-    group?: string;
-    tags?: { key?: string; label?: string }[];
-    notifyCount?: number;
-    unreadCount?: number;
-    country?: string;
-    access?: string;
-    geographic?: {
-      province?: { label?: string; key?: string };
-      city?: { label?: string; key?: string };
-    };
-    address?: string;
     phone?: string;
   };
 
   type LoginResult = {
-    status?: string;
-    type?: string;
-    currentAuthority?: string;
+    code: number;
+    data?: Record<string, any>;
+    message?: string;
   };
 
   type PageParams = {
@@ -64,8 +55,6 @@ declare namespace API {
   type LoginParams = {
     username?: string;
     password?: string;
-    autoLogin?: boolean;
-    type?: string;
   };
 
   type ErrorResponse = {
