@@ -55,3 +55,67 @@ ol {
     min-height: 100vh;
   }
 }
+
+.ellipsis {
+  display: inline-block;
+  max-width: 100%;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  word-break: break-all;
+}
+
+.align-left {
+  text-align: left;
+}
+.align-center {
+  text-align: center;
+}
+.align-right {
+  text-align: right;
+}
+
+// 生成margin, padding的通用css代码
+.generate-mp(40);
+.generate-mp(@n, @i: 0) when (@i =< @n) {
+  .m-@{i} {
+    margin: @i * 1px;
+  }
+  .mt-@{i} {
+    margin-top: @i * 1px;
+  }
+  .mr-@{i} {
+    margin-right: @i * 1px;
+  }
+  .mb-@{i} {
+    margin-bottom: @i * 1px;
+  }
+  .ml-@{i} {
+    margin-left: @i * 1px;
+  }
+  .p-@{i} {
+    padding: @i * 1px;
+  }
+  .pt-@{i} {
+    padding-top: @i * 1px;
+  }
+  .pr-@{i} {
+    padding-right: @i * 1px;
+  }
+  .pb-@{i} {
+    padding-bottom: @i * 1px;
+  }
+  .pl-@{i} {
+    padding-left: @i * 1px;
+  }
+  .generate-mp(@n, (@i + 10));
+}
+
+// 生成字体大小（12px - 24px）
+.generate-font(24);
+.generate-font(@n, @i: 12) when (@i =< @n) {
+  .font-@{i} {
+    font-size: @i * 1px;
+  }
+  .generate-font(@n, (@i + 2));
+}
