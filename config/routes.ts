@@ -9,7 +9,7 @@
           {
             name: 'login',
             path: '/user/login',
-            component: './user/Login',
+            component: './user/login',
           },
         ],
       },
@@ -22,7 +22,7 @@
     path: '/welcome',
     name: 'welcome',
     icon: 'smile',
-    component: './Welcome',
+    component: './welcome',
   },
   {
     path: '/',
