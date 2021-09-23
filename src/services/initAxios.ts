@@ -10,7 +10,7 @@ export default function initAxios() {
 		history.push(`${loginPath}?from=${history.location.pathname}`)
 	}
 
-	axios.defaults.baseURL = 'http://127.0.0.1:7001'
+	axios.defaults.baseURL = process.env.API_URL
 
 	// 配置请求拦截
 	axios.interceptors.request.use(

@@ -6,9 +6,6 @@
   "scripts": {
     "analyze": "cross-env ANALYZE=1 umi build",
     "build": "umi build",
-    "deploy": "npm run build && npm run gh-pages",
-    "gh-pages": "gh-pages -d dist",
-    "i18n-remove": "pro i18n-remove --locale=zh-CN --write",
     "postinstall": "umi g tmp",
     "lint": "umi g tmp && npm run lint:js && npm run lint:style && npm run lint:prettier && npm run tsc",
     "lint-staged": "lint-staged",
@@ -18,9 +15,7 @@
     "lint:style": "stylelint --fix \"src/**/*.less\" --syntax less",
     "precommit": "lint-staged",
     "start": "cross-env UMI_ENV=dev umi dev",
-    "start:dev": "cross-env REACT_APP_ENV=dev MOCK=none UMI_ENV=dev umi dev",
-    "start:pre": "cross-env REACT_APP_ENV=pre UMI_ENV=dev umi dev",
-    "start:test": "cross-env REACT_APP_ENV=test MOCK=none UMI_ENV=dev umi dev",
+    "start:prod": "cross-env UMI_ENV=prod umi dev",
     "serve": "umi-serve",
     "tsc": "tsc --noEmit"
   },
