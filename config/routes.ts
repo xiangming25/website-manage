@@ -25,6 +25,12 @@
     component: './welcome',
   },
   {
+    path: '/news',
+    name: '新闻列表',
+    icon: 'smile',
+    component: './news/list',
+  },
+  {
     path: '/',
     redirect: '/welcome',
   },
