@@ -5,6 +5,7 @@ import type { ActionType } from '@ant-design/pro-table'
 import ProTable from '@ant-design/pro-table'
 import request from 'umi-request'
 import columns from './columns'
+import { PageContainer } from '@ant-design/pro-layout'
 
 type GithubIssueItem = {
   url: string;
@@ -25,34 +26,42 @@ type GithubIssueItem = {
 export default () => {
 	const actionRef = useRef<ActionType>()
 	return (
-		<ProTable<GithubIssueItem>
-			columns={columns}
-			actionRef={actionRef}
-			request={async (params = {}) => {
-				return request<{
+		<PageContainer header={{
+			title: '',
+			breadcrumb: {
+				routes: [
+					{ path: '', breadcrumbName: '新闻列表' }
+				],
+			}}}>
+			<ProTable<GithubIssueItem>
+				columns={columns}
+				actionRef={actionRef}
+				request={async (params = {}) => {
+					return request<{
           data: GithubIssueItem[];
         }>('https://proapi.azurewebsites.net/github/issues', {
         	params,
         })
-			}}
-			columnsState={{
-				persistenceKey: 'pro-table',
-				persistenceType: 'localStorage',
-			}}
-			rowKey="id"
-			pagination={{
-				pageSize: 10,
-			}}
-			dateFormatter="string"
-			toolBarRender={() => [
-				<Button key="button" icon={<PlusOutlined />} type="primary">
+				}}
+				columnsState={{
+					persistenceKey: 'pro-table',
+					persistenceType: 'localStorage',
+				}}
+				rowKey="id"
+				pagination={{
+					pageSize: 10,
+				}}
+				dateFormatter="string"
+				toolBarRender={() => [
+					<Button key="button" icon={<PlusOutlined />} type="primary">
           新建
-				</Button>,
-			]}
-			options={false}
-			search={{
-				defaultCollapsed: false
-			}}
-		/>
+					</Button>,
+				]}
+				options={false}
+				search={{
+					defaultCollapsed: false
+				}}
+			/>
+		</PageContainer>
 	)
 }

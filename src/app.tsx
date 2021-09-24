@@ -55,6 +55,8 @@ export const layout: RunTimeLayoutConfig = ({ initialState }) => {
 		rightContentRender: () => <RightContent />,
 		disableContentMargin: false,
 		waterMarkProps: {
+			gapX: 120,
+			gapY: 60,
 			content: initialState?.currentUser?.name,
 		},
 		onPageChange: () => {
