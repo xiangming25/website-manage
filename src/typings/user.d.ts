@@ -10,3 +10,10 @@ declare namespace API {
     password: string;
   }
 }
+
+interface Response<T> {
+  code: number;
+  data: T;
+  message: string;
+  success: boolean;
+}

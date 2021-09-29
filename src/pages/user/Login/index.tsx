@@ -24,9 +24,10 @@ const Login: React.FC = () => {
 		setSubmitting(true)
 		try {
 			// 登录
-			const msg = await login({ ...values })
-			if (msg.code === errorCode.SUCCESS) {
+			const res = await login({ ...values })
+			if (res.code === errorCode.SUCCESS) {
 				message.success('登录成功！')
+				localStorage.setItem('token', res.data.token)
 				await fetchUserInfo()
 				/** 此方法会跳转到 redirect 参数所在的位置 */
 				if (!history) return
@@ -36,8 +37,6 @@ const Login: React.FC = () => {
 				return
 			}
 		} catch (error) {
-			// ts 4.4 后需要配置 tsconfig.js 的 "useUnknownInCatchVariables": false
-			message.error(error.message || '登录失败，请重试！')
 		}
 		setSubmitting(false)
 	}
